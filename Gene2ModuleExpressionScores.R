@@ -1,9 +1,20 @@
-#This function collapses a gene expression matrix to pathway activity scores
+#Gene2ModuleExpressionScores
+
+
+#Description
+#This function collapses a gene expression matrix to module-level expression scores
+
+#Usage
+#Gene2ModuleExpressionScores(gene_expression_dat module_list = c("lowBTMs", "highBTMs", "BloodGen3Module","MonacoModules"), summary_stat = c(mean, median)) 
 
 #Arguments
-#gene_expression_dat    a gene expression matrix of normalized logCPM values (not counts) or ExpressionSet object containing such a matrix
-#module_list            name of module set to use. Can be "lowBTMs", "highBTMs", "Chaussabel_Gen3_Modules" or "MonacoModules".
-#summary_stat           "mean' or "median"
+#gene_expression_dat    gene expression matrix of normalized logCPM values (not counts) or ExpressionSet object containing such a matrix with rownames as HUGO symbols or Ensembl IDs
+#module_list            name of module set to use. Can be "lowBTMs", "highBTMs", "BloodGen3Module" or "MonacoModules".
+#summary_stat           mean or median
+
+#Value
+#Output is a dataframe with rownames as module names and column values representing the mean or median or member genes within a module
+
 library(tidyr)
 library(Biobase)
 library(curl)
