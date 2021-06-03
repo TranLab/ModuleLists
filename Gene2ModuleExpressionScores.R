@@ -5,7 +5,7 @@
 #This function collapses a gene expression matrix to module-level expression scores
 
 #Usage
-#Gene2ModuleExpressionScores(gene_expression_dat module_list = c("lowBTMs", "highBTMs", "BloodGen3Module","MonacoModules"), summary_stat = c(mean, median)) 
+#Gene2ModuleExpressionScores(gene_expression_dat, module_list = c("lowBTMs", "highBTMs", "BloodGen3Module","MonacoModules"), summary_stat = c(mean, median)) 
 
 #Arguments
 #gene_expression_dat    gene expression matrix of normalized logCPM values (not counts) or ExpressionSet object containing such a matrix with rownames as HUGO symbols or Ensembl IDs
@@ -53,20 +53,24 @@ Gene2ModuleExpressionScores <- function(gene_expression_dat, module_list = c("lo
       right_join(., exprs_dat_temp,
                  by = "geneid") %>%
       dplyr::select(-c(geneid))
-  }
-  exprs_dat_temp <- exprs_dat_temp %>%
+  }else
+    {
+    exprs_dat_temp <- exprs_dat_temp %>%
+      dplyr::rename(GeneSymbol = "geneid")
+    }
+  exprs_dat_temp2 <- exprs_dat_temp %>%
     left_join(., temp_df,
               by="GeneSymbol") %>%
     dplyr::select(module, everything()) %>%
     dplyr::select(-c(GeneSymbol)) %>%
     filter(!is.na(module)) %>%
     as.data.table()
-    exprs_dat_temp  <- exprs_dat_temp[, lapply(.SD, summary_stat, na.rm=TRUE), by=module ]
-    exprs_dat_temp <- exprs_dat_temp %>%
+    exprs_dat_temp2  <- exprs_dat_temp2[, lapply(.SD, summary_stat, na.rm=TRUE), by=module ]
+    exprs_dat_temp2 <- exprs_dat_temp2 %>%
       as.data.frame() %>%
       column_to_rownames(var = "module")
-  return(exprs_dat_temp)
-  rm(temp_df, myModuleList,exprs_dat_temp)
+  return(exprs_dat_temp2)
+  rm(temp_df, myModuleList,exprs_dat_temp, exprs_dat_temp2)
 }
 
   
