@@ -16,9 +16,9 @@ Gene2ModuleExpressionScores(gene_expression_dat, module_list = c("lowBTMs", "hig
 
 gene_expression_dat         gene expression matrix of normalized logCPM values (not counts) or ExpressionSet object containing such a matrix with rownames as    HUGO symbols or Ensembl IDs
 
-module_list                 name of module set to use. Can be "lowBTMs", "highBTMs", "BloodGen3Module" or "MonacoModules".
+module_list                     name of module set to use. Can be "lowBTMs", "highBTMs", "BloodGen3Module" or "MonacoModules".
 
-summary_stat                mean or median
+summary_stat                  mean or median
 
 ## Value
 
