@@ -12,8 +12,7 @@ This function collapses a gene expression matrix to module-level expression scor
 
 Gene2ModuleExpressionScores(gene_expression_dat, module_list = c("lowBTMs", "highBTMs", "BloodGen3Module","MonacoModules"), summary_stat = c(mean, median)) 
 
-## Arguments
-
+| Arguments | Description |
 | :---   | :- |
 | gene_expression_dat | gene expression matrix of normalized logCPM values (not counts) or ExpressionSet object containing such a matrix with rownames as HUGO symbols or Ensembl IDs |
 | module_list | Name of module set to use. Can be "lowBTMs", "highBTMs", "BloodGen3Module" or "MonacoModules" |
