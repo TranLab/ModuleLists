@@ -87,5 +87,5 @@ NamedGeneRankList2GseaTable <- function(rankedgenes, geneset = c("all", "bloodmo
     dplyr::bind_rows(.id = "module_type")
   writexl::write_xlsx(GSEAtab, paste0(output_directory, filename_prefix, " GSEA results ", geneset, ".xlsx"))
   return(GSEAtab)
-  close(url)
+  closeAllConnections()
   }
