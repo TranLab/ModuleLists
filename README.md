@@ -31,7 +31,7 @@ This function takes a named ranked list of genes and applies the fgseaMultilevel
 
 ## Usage
 
-NamedGeneRankList2GseaTable <- function(rankedgenes, geneset = c("all", "bloodmodules", "MSigDB"), output_directory = getwd(), filename_prefix = "myFile", fixed_seed = TRUE, ...)
+NamedGeneRankList2GseaTable(rankedgenes, geneset = c("all", "bloodmodules", "MSigDB"), output_directory = getwd(), filename_prefix = "myFile", fixed_seed = TRUE, ...)
 
 | Arguments   | Description |
 | :--- | :- |
