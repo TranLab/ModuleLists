@@ -67,7 +67,7 @@ Gene2ModuleExpressionScores2 <- function(gene_expression_dat, module_list = c("l
   
   df.all2 <- foo2 %>%
     left_join(., df.all, by = "GeneSymbol") %>%
-    as.tibble() %>%
+    as_tibble() %>%
     mutate_at(vars(contains("modules.")) , ~ ifelse(. == 1, expression, 0)) %>%
     mutate_at(vars(contains("modules.")) , ~ ifelse(abs(.) > myThreshold, 1, 0)) %>%
     replace(is.na(.), 0) %>%
