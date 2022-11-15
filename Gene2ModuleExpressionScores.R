@@ -1,6 +1,5 @@
 #Gene2ModuleExpressionScores
 
-
 #Description
 #This function collapses a gene expression matrix to module-level expression scores
 
