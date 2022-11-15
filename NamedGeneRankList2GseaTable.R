@@ -26,7 +26,7 @@ NamedGeneRankList2GseaTable <- function(rankedgenes, geneset = c("all", "bloodmo
   library(curl)
   
   if(fixed_seed == TRUE){
-    set.seed(12345)
+    set.seed(1234)
   }
   if(class(rankedgenes) == "data.frame" | class(rankedgenes) == "tbl" | class(rankedgenes) == "data.table"){
     rankedgenes <- deframe(rankedgenes)
